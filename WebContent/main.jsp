@@ -28,8 +28,10 @@ function setContentHeight(){
 	
 	//resize the main wrapper for centering the main content
 	var wrap = document.getElementById('mainWrap');
-	var wrapPadding = (newHeight-300)/2;
-	wrap.style.padding = wrapPadding + "px";
+	if(wrap){
+		var wrapPadding = (newHeight-300)/2;
+		wrap.style.padding = wrapPadding + "px";
+	}
 }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
