@@ -1,0 +1,79 @@
+/* style.css created by Benjamin Morlok */
+@CHARSET "ISO-8859-1";
+
+@font-face {
+    font-family: Visitor1;
+    src: url(fonts/visitor1.ttf);
+    font-weight:400;
+}
+
+body{
+	height:100%;
+	background-color:#6f6f6f;
+	background-image:url('images/background.gif');
+	background-repeat:repeat-x;
+	font-family:arial;
+	font-size:10pt;
+	padding:0px;
+	margin:0px;
+	}
+	 
+#wrapper {
+	min-height: 100%;
+	height:     auto;
+	height:     100%;
+	margin:     0 auto ; /* -44px being the size of the footer */
+    }
+
+#footer{width:100%;}
+
+#siteHeader{
+	height:131px;
+	width:100%;
+	}
+
+#navBar{
+	height:36px;
+	width:100%;
+	background-image:url('images/navBar_bg.gif');
+	background-repeat:repeat-x;
+	padding:0px;
+	margin:0px;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:20pt;
+	color:#3f3f3f;
+	}
+
+.navItem{
+	float:left;
+	margin-left:25px;
+	padding-top:5px;
+	}
+	
+.navItem a{
+	text-decoration:none;
+	color:#3f3f3f;
+	}
+	
+.navItem:hover a{
+		color:#e5e5e5;
+		text-decoration:none;
+	}
+
+#mainContent{ 
+	width:100%;
+	background-color:#e5e5e5;
+	}
+
+#baseBar{
+	height:36px;
+	width:100%;
+	background-image:url('images/navBar_bg.gif');
+	background-repeat:repeat-x;
+	padding:0px;
+	margin:0px;
+	}
+
+h1{ color: white; font-family:arial; font-size:16pt }
+
+h2{color: #eee; font-family:arial; font-size:12pt}
