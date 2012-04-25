@@ -25,7 +25,9 @@ body{
 	margin:     0 auto ; /* -44px being the size of the footer */
     }
 
-#footer{width:100%;}
+#footer{ 
+	width:100%; 
+	}
 
 #siteHeader{
 	height:131px;
@@ -56,11 +58,11 @@ body{
 	}
 	
 .navItem:hover a{
-		color:#e5e5e5;
-		text-decoration:none;
+	color:#e5e5e5;
+	text-decoration:none;
 	}
 
-#mainContent{ 
+#mainContent{
 	width:100%;
 	background-color:#e5e5e5;
 	}
@@ -74,6 +76,44 @@ body{
 	margin:0px;
 	}
 
-h1{ color: white; font-family:arial; font-size:16pt }
+.buildColumn{
+	height:100%;
+	float:left;
+	width:188px;
+	padding:10px;
+	text-align:left;
+	margin-left:30px;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:12pt;
+	color:transparent;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+}
+
+.buildColumn:hover {
+	color:#3f3f3f;
+	}
+
+h1{ color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:16pt;
+	margin:0 5 5 5;
+	}
 
 h2{color: #eee; font-family:arial; font-size:12pt}
+
+.buildimg{
+	height:188px;
+	width:188px;
+ 	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    }
+ 
+.buildimg:hover {
+	margin-left:-6px;
+	margin-top:-6px;
+    height:200px;
+    width:200px;
+}
