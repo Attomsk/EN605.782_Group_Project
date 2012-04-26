@@ -12,11 +12,11 @@ import java.sql.ResultSet;
 		private static DataAccessLayer instance = null;
 		
 		//database connection info
-		private static String HOST = "web3.apl.jhu.edu";
+		private static String HOST = "localhost";
 		private static int PORT = 3306;
-		private static String USERNAME = "hw_user";
-		private static String PASSWORD = "password";
-		private static String DB_NAME = "homework";
+		private static String USERNAME = "root";
+		private static String PASSWORD = "";
+		private static String DB_NAME = "build_a_pc_db";
 		private static String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME;
 		private static Connection CONN = null;
 		
