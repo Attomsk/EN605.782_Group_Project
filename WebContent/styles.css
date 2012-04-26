@@ -33,6 +33,23 @@ body{
 	height:131px;
 	width:100%;
 	}
+	
+.headerText{
+	padding-right:5px;
+	float:right;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:20pt;
+	margin-top:100px;
+	}
+	
+.headerText a{
+	text-decoration:none;
+	color:#e5e5e5;
+	}
+
+.headerText:hover a{
+	color:#f7921c;
+	}
 
 #navBar{
 	height:36px;
@@ -47,7 +64,7 @@ body{
 	}
 
 .navItem{
-	float:left;
+	padding-right:5px;
 	margin-left:25px;
 	padding-top:5px;
 	}
@@ -85,7 +102,7 @@ body{
 	margin-left:30px;
 	font-family: Visitor1, Verdana, Arial;
 	font-size:12pt;
-	color:transparent;
+	color:#e5e5e5;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -106,6 +123,8 @@ h2{color: #eee; font-family:arial; font-size:12pt}
 .buildimg{
 	height:188px;
 	width:188px;
+	border-color: transparent;
+	border-width: 3px;
  	-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -116,4 +135,33 @@ h2{color: #eee; font-family:arial; font-size:12pt}
 	margin-top:-6px;
     height:200px;
     width:200px;
-}
+    border:solid;
+    border-color: #3f3f3f;
+	border-width: 3px;
+	}
+
+.borderDiv {
+	border:3px solid;
+	border-color:#3f3f3f;
+	background:#f6f5f5;
+	width: 1000px;
+	height:auto;
+    margin: 0px auto;
+    padding:10px;
+	}
+	
+.formTable {
+	border-width:2px;
+	border-spacing:0px;
+	border-style:none;
+	border-color:#3f3f3f;;
+	border-collapse:collapse;
+	}
+
+.formTable td {
+	padding:5px;
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:14pt;
+	text-align:right;
+	}
