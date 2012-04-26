@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DataAccess.DataAccessLayer;
+
 /**
  * Servlet implementation class MainServlet
  */
@@ -29,6 +31,8 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		DataAccessLayer DAO = DataAccessLayer.getInstance();
+		DAO.closeDbConnection();
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/test.jsp");
 		dispatcher.forward(request, response);
 	}
