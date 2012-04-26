@@ -29,7 +29,7 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/welcome.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/test.jsp");
 		dispatcher.forward(request, response);
 	}
 
