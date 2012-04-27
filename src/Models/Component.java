@@ -20,6 +20,7 @@ public class Component implements java.io.Serializable{
 	private String name;
 	private String brand;
 	private double price;
+	private int id;
 	
 	/**
 	 * Default Constructor
@@ -30,6 +31,7 @@ public class Component implements java.io.Serializable{
 		this.name = "";
 		this.brand = "";
 		this.price = 0;
+		this.id = -1;
 	}
 	
 	/**
@@ -39,12 +41,13 @@ public class Component implements java.io.Serializable{
 	 * @param brand
 	 * @param price
 	 */
-	public Component(String category, String name, String brand, double price)
+	public Component(String category, String name, String brand, double price, int id)
 	{
 		this.category = category;
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
+		this.id = id;
 	}
 	
 	/**
@@ -80,6 +83,14 @@ public class Component implements java.io.Serializable{
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }

@@ -1,6 +1,4 @@
 package DataAccess;
-import hw2.common.DataAccessLayer;
-import hw2.common.LacrosseTeam;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,9 +33,9 @@ public class ComponentDataBean {
 		List<Component> outputData = new ArrayList<Component>();
 		try
 		{
-			ResultSet res = DAO.getAllCOmponentOfType(type);
+			ResultSet res = DAO.getAllComponentOfType(type);
 			while (res.next()) {
-				outputData.add(new Component(res.getString("category"), res.getString("component_name"), "placeholder", res.getDouble("component_price")));
+				outputData.add(new Component(res.getString("category"), res.getString("component_name"), "placeholder", res.getDouble("component_price"), res.getInt("component_ID")));
 			}
 			//clean up database resources
 			res.close();
