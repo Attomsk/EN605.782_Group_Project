@@ -37,6 +37,36 @@ public class Customer implements java.io.Serializable{
 		this.city = "";
 		this.state = "";
 	}
+	
+	
+	/**
+	 * Constructor using fields
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param address1
+	 * @param address2
+	 * @param zipcode
+	 * @param city
+	 * @param state
+	 */
+	public Customer(String firstName, String lastName, String email,
+			String address1, String address2, String zipcode, String city,
+			String state) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.zipcode = zipcode;
+		this.city = city;
+		this.state = state;
+	}
+
+
+
 	/**
 	 * Getters and Setters
 	 */
