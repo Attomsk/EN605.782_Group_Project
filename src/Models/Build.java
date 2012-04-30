@@ -38,6 +38,7 @@ public class Build implements java.io.Serializable{
 	 */
 	public Build()
 	{
+		state = 0;
 	}
 	
 	/**
@@ -48,6 +49,22 @@ public class Build implements java.io.Serializable{
 		this.state = state;
 		this.components = components;
 		this.processorType = processorType;
+	}
+	
+	/**
+	 * Increment the state
+	 */
+	public void incrementState() {
+		state++;
+	}
+
+	/**
+	 * Add component to list of components.
+	 * 
+	 * @param component
+	 */
+	public void addComponent(Component component) {
+		components.add(component);
 	}
 	
 	/**
