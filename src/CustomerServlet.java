@@ -52,9 +52,10 @@ public class CustomerServlet extends HttpServlet {
 		String zipcode = request.getParameter("zipcode");
 		String city = request.getParameter("city");
 		String state = request.getParameter("state");
+		String password = request.getParameter("password");
 
 		// add to customer bean
-		Customer customer = new Customer (firstName, lastName, email, address1, address2, zipcode, city, state);
+		Customer customer = new Customer (firstName, lastName, email, password, address1, address2, zipcode, city, state);
 		
 		// store the Customer object in the request object
 		request.setAttribute("customer", customer);
