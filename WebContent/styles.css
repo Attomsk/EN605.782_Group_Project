@@ -118,9 +118,21 @@ h1{ color:#3f3f3f;
 	margin:0 5 5 5;
 	}
 
-h2{color: #eee; font-family:arial; font-size:12pt}
+h2{
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:13pt;
+	margin:0;
+	}
+	
+h3{
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:12pt;
+	margin:0;
+	}
 
-.buildimg{
+.buildimg {
 	height:188px;
 	width:188px;
 	border-color: transparent;
@@ -150,6 +162,21 @@ h2{color: #eee; font-family:arial; font-size:12pt}
     padding:10px;
 	}
 	
+.clearDiv {
+	border:0px solid;
+	width: 1000px;
+	height:auto;
+    margin: 0px auto;
+    padding:10px;
+	}
+	
+.clearDiv a {
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	text-decoration:none;
+	color:#3f3f3f;
+	}
+	
 .formTable {
 	border-width:2px;
 	border-spacing:0px;
@@ -165,3 +192,95 @@ h2{color: #eee; font-family:arial; font-size:12pt}
 	font-size:14pt;
 	text-align:right;
 	}
+
+/* main build table */
+.buildTable {
+	margin-left:auto;
+	margin-right:auto;
+	width:70%
+	}
+
+.buildTable tr {
+	background-color:#e5e5e5;
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:14pt;
+}
+
+.buildTable th {
+	text-align:center;
+	padding: 2px;
+	}
+
+.buildTable td {
+	text-align:center;
+	padding: 2px;
+	}
+/* end main build table */
+
+/* selected item table */
+.selectedTable {
+	margin-left:auto;
+	margin-right:auto;
+	width:100%
+	}
+
+.selectedTable tr {
+	background-color:#e5e5e5;
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:12pt;
+}
+
+.selectedTable th {
+	text-align:center;
+	padding: 0px;
+	}
+
+.selectedTable td {
+	text-align:center;
+	padding: 0px;
+	}
+/* end selected table */
+	
+/* popup window */
+	
+.holder{
+    width:100%;
+    display:block;
+	}
+	
+.popup{
+    width:400px;
+    background:#3f3f3f;
+    margin:30px auto 0;
+    padding:3px;
+    position:absolute;
+    left: 50%;
+  	top: 50%;
+  	margin-left: -200px;
+    margin-top: -100px; /* This should be half of the total height of your div */
+	}
+
+.content{
+	height:auto;
+	overflow-y:auto;
+    background:#f6f5f5;
+    color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:12pt;
+    padding: 28px 26px 33px 25px;
+	}
+
+.content a {
+		font-size:14pt;
+		text-decoration:none;
+		color:#6f6f6f;
+	}
+
+.content a:hover {
+		text-decoration:none;
+		color:#3f3f3f;
+	}
+	
+/* end popup window */

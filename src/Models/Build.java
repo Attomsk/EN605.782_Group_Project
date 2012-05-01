@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -116,5 +117,16 @@ public class Build implements java.io.Serializable{
 	
 	public void setProcessorType(int processorType) {
 		this.processorType = processorType;
+	}
+	
+	// Computes the total cost of the current build
+	public double getTotalBuildCost(){
+		double total = 0;
+		Iterator<Component> itr = components.iterator();
+		while (itr.hasNext()) {
+			Component cmp = itr.next();
+			total += cmp.getPrice();
+		}
+		return total;
 	}
 }

@@ -1,15 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Enter Website</title>
-</head>
-<body>
-<form action="Submit" method="GET">
-<button name="ProcessorType" onClick="this.form.onsubmit(); return false;" value="1">AMD</button>
-<button name="ProcessorType" onClick="this.form.onsubmit(); return false;" value="2">Intel</button>
-</form>
-</body>
-</html>
+<%@ include file="master/header.jsp" %>
+Build A PC - Home
+<%@ include file="master/navbar.jsp" %> 
+			<div id="mainWrap" style="width:100%; height:100%; vertical-align: middle;">
+			<div class="borderDiv">
+				<div class="buildColumn">
+					<h1>Build AMD</h1>
+					<a href="Build?ProcessorType=1"><img class="buildimg" src="images/buildAMD.jpg"/></a><br/>
+					Build a computer with an AMD processor.
+				</div>
+				<div class="buildColumn">
+					<h1>Build Intel</h1>
+					<a href="Build?ProcessorType=2"><img class="buildimg" src="images/buildIntel.jpg"/></a><br/>
+					Build a computer with an Intel processor.
+				</div>
+				<div class="buildColumn">
+					<h1>Ready to Build</h1>
+					<img class="buildimg" src="images/buildPackage.jpg"/><br/>
+					Our pre-made packages come with everything you need to build your own PC.
+				</div>
+				<div class="buildColumn">
+					<h1>Combo Deals</h1>
+					<img class="buildimg" src="images/BuildCombo.jpg"/><br/>
+					Start with a combo deal for extra savings.
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			</div>
+<%@ include file="master/footer.jsp" %> 

@@ -17,7 +17,7 @@ List<Component> components = (List<Component>) request.getSession().getAttribute
 Build build = (Build) request.getSession().getAttribute("build");
 %>
 <h1><%=build.getStateString() %></h1>
-<form action="Submit" method="GET">
+<form action="Build" method="GET">
 	<ul>
 	<% for(int i=0; i < components.size(); i++)
 		{%>

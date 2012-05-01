@@ -107,7 +107,7 @@ import java.sql.ResultSet;
 						" inner join component_brand on" +
 						" components.componentBrandID = component_brand.componentBrandID" +
 						" where componentCategoryName='" + category + "'" +
-						" and (compatibleWithID =" + processorType + " OR compatibleWithID = 3)";
+						" and (compatibleWithID =" + processorType + " OR compatibleWithID = 3) ORDER BY componentPrice";
 						
 				stmnt = CONN.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				res = stmnt.executeQuery(query);

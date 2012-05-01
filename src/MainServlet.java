@@ -68,7 +68,7 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Default redirect from this action
-		String url = "/main.jsp";
+		String url = "/index.jsp";
 		// This is the worker bean that gets bean info from the DB
 		ComponentDataBean componentData = new ComponentDataBean();
 		// Get session if one exists, do not create new session
@@ -109,9 +109,8 @@ public class MainServlet extends HttpServlet {
 				session.setAttribute("build", build);
 				session.setAttribute("newComponents", nextComponents);
 				// forward request and response objects to JSP page
-				url = "/test.jsp";
+				url = "/build.jsp";
 			}
-			
 		}
 		// load view
 		RequestDispatcher dispatcher =
