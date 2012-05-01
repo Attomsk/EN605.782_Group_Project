@@ -114,7 +114,20 @@ import java.sql.ResultSet;
 			return res;
 		}
 			
-		
+		public ResultSet validate(String email, String password) {
+			
+			ResultSet res = null;
+			
+			try {
+				String query = "select * from login where username='"+email+"' and password='"+password+"'";
+				stmnt = CONN.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+				res = stmnt.executeQuery(query);
+			} catch (SQLException ex) {
+				
+				handleSqlExceptions(ex);			
+			}
+			return res;
+		}
 		
 }
 	

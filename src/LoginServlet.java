@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import DataAccess.ComponentDataBean;
+import DataAccess.CustomerDataBean;
 import Models.Build;
 import Models.Component;
 import Models.Customer;
@@ -19,14 +20,14 @@ import Models.Customer;
 /**
  * Servlet implementation class CustomerServlet
  */
-@WebServlet("/CustomerServlet")
-public class CustomerServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,28 +44,29 @@ public class CustomerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-		// get parameters from the request
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
+		
+		String url;
+		HttpSession session = request.getSession(false);
+		
+		CustomerDataBean customerData = new CustomerDataBean();
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		String address1 = request.getParameter("address1");
-		String address2 = request.getParameter("address2");
-		String zipcode = request.getParameter("zipcode");
-		String city = request.getParameter("city");
-		String state = request.getParameter("state");
-
-		// add to customer bean
-		Customer customer = new Customer (firstName, lastName, email, password, address1, address2, zipcode, city, state);
 		
-		// store the Customer object in the request object
-		request.setAttribute("customer", customer);
-		// forward request and response objects to JSP page
-		String url = "/main.jsp";
+		List<Customer> validCustomers = (List<Customer>) customerData.validate(email, password);
+		
+		if (validCustomers.isEmpty()) {
+			// redirect back to login
+			url = "/login.jsp";
+		} else {
+			url = "/main.jsp";
+			
+			// Store customer in session. Lazy...just grabbing first customer in list. Assuming it will always be just
+			// one customer email/password match.
+			session.setAttribute("customer", validCustomers.get(0));
+		}
+		
 		RequestDispatcher dispatcher =
-		     getServletContext().getRequestDispatcher(url);
-		dispatcher.forward(request, response);	
+			     getServletContext().getRequestDispatcher(url);
+			dispatcher.forward(request, response);	
 	}
-
 }
