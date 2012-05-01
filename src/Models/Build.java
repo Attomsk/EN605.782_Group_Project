@@ -84,6 +84,16 @@ public class Build implements java.io.Serializable{
 	}
 	
 	/**
+	 * Removes the last component from the component list
+	 */
+	public void removeLastComponent() {
+		if(components.size() > 0)
+		{
+			components.remove(components.size()-1);
+		}
+	}
+	
+	/**
 	 * Getters and Setters
 	 */
 	public int getState() {

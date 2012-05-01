@@ -34,6 +34,9 @@ public class MainServlet extends HttpServlet {
 		String url = "/index.jsp";
 		// Check for a processor type in the URL parameters
 		String processorTypeString = request.getParameter("ProcessorType");
+		// Check to see if this is a request to go back
+		String back = request.getParameter("back");
+		
 		int processorType = -1;
 		if(null != processorTypeString)
 		{
@@ -54,6 +57,17 @@ public class MainServlet extends HttpServlet {
 		Build build = (Build) session.getAttribute("build");
 		if(null != build)
 		{
+			// This is a request to go back in the build
+			if(null != back)
+			{
+				// remove the last component from the list
+				build.removeLastComponent();
+				// push the state counter back one
+				if((build.getState()-1) >= 0)
+				{
+					build.setState(build.getState()-1);
+				}
+			}
 			doPost(request, response);
 			return;
 		}

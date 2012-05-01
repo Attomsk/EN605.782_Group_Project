@@ -24,7 +24,21 @@ function hideBuildList(){
 </script>
 	<div id="buildWrapper" style="width:100%; height:100%; vertical-align: middle;">
 		<div class="clearDiv">
-			<div style="float:left"><h1>Select <%=build.getStateString() %></h1></div>
+			<div style="float:left">
+				<h1>Select <%=build.getStateString() %></h1>
+				<%for(int i=0; i < Build.buildStates.length; i++)
+				{%>
+					<%if(Build.buildStates[i].equals(build.getStateString()))
+					{%>
+						<font color="#f6921c"><%=Build.buildStates[i]%></font>	
+					<%}
+					else
+					{%>
+						<%=Build.buildStates[i]%>
+					<%}%>
+					<%if((i+1) != Build.buildStates.length){%> > <%} %>
+				<%} %>
+			</div>
 			<div style="float:right; text-align:right">
 				<h3>Current Build Total: $<%=build.getTotalBuildCost() %></h3><br/>
 				<h3><a href="#" onClick="showBuildList(); return false;">View Selected Components</a></h3>
@@ -45,7 +59,7 @@ function hideBuildList(){
 					Component current = components.get(i); %>
 				<tr>
 					<td>
-						<button name="<%=build.getStateString()%>" onClick="this.form.onsubmit(); return false;" value="<%=current.getId()%>">Select</button>
+						<a href="Build?<%=build.getStateString()%>=<%=current.getId()%>" class="squareButton" onClick="this.form.onsubmit(); return false;">Select</a>
 					</td>
 					<td><%=current.getBrand() %>
 					<td><%=current.getName()%></td>
@@ -54,6 +68,9 @@ function hideBuildList(){
 				<%} %>
 				</table>
 			</form>
+		</div>
+		<div class="clearDiv">
+			<h3><a href="Build?back=true">Go back</a></h3>
 		</div>
 		<!-- Selected items popup window -->
 		<div class="holder">     

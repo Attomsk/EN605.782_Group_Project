@@ -168,6 +168,9 @@ h3{
 	height:auto;
     margin: 0px auto;
     padding:10px;
+    color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:10pt;
 	}
 	
 .clearDiv a {
@@ -201,7 +204,7 @@ h3{
 	}
 
 .buildTable tr {
-	background-color:#e5e5e5;
+	
 	color:#3f3f3f;
 	font-family: Visitor1, Verdana, Arial;
 	font-size:14pt;
@@ -284,3 +287,26 @@ h3{
 	}
 	
 /* end popup window */
+
+/* Select Button */
+.squareButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	border:2px solid #3f3f3f;
+	display:inline-block;
+	color:#3f3f3f;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}.squareButton:hover {
+	background-color:#dfdfdf;
+}.squareButton:active {
+	position:relative;
+	top:1px;
+}
+/* end Select Button */
