@@ -7,8 +7,9 @@
 <title>Enter Website</title>
 </head>
 <body>
-<form action="Submit" method="get">
-<input type="submit" value="Enter Website"/>
+<form action="Submit" method="GET">
+<button name="ProcessorType" onClick="this.form.onsubmit(); return false;" value="1">AMD</button>
+<button name="ProcessorType" onClick="this.form.onsubmit(); return false;" value="2">Intel</button>
 </form>
 </body>
 </html>

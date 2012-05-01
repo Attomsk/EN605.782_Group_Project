@@ -36,13 +36,6 @@ public class CustomerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ComponentDataBean componentData = new ComponentDataBean();
-		List<Component> memory = (List<Component>)componentData.getAllComponentsOfType("MEMORY");
-		HttpSession session = request.getSession();
-		session.setAttribute("memory", memory);
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/test.jsp");
-		dispatcher.forward(request, response);
 	}
 
 	/**

@@ -15,8 +15,8 @@ import java.sql.ResultSet;
 		private static String HOST = "localhost";
 		private static int PORT = 3306;
 		private static String USERNAME = "root";
-		private static String PASSWORD = "";
-		private static String DB_NAME = "build_a_pc_db";
+		private static String PASSWORD = "root";
+		private static String DB_NAME = "db_build_a_pc";
 		private static String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME;
 		private static Connection CONN = null;
 		
@@ -95,26 +95,43 @@ import java.sql.ResultSet;
 			}
 		}
 		
-		public ResultSet getAllComponentOfType(String category){
-
-			ResultSet res = null;
 		
+		// This will return all components that are of a certain category compatible with a certain processor type
+		public ResultSet getAllComponentOfType(String category, int processorType){
+			ResultSet res = null;
 			try{
-				
-				String query = "Select * from othercomponents Where category= '" + category + "'";
+				String query = "Select componentId as 'Id', componentDescription as 'Component', componentPrice as 'Price',"+ 
+						" componentCategoryName as 'Device', componentBrandName as 'Brand' from components" +
+						" inner join component_category on" +
+						" components.componentCategoryID = component_category.componentCategoryID" +
+						" inner join component_brand on" +
+						" components.componentBrandID = component_brand.componentBrandID" +
+						" where componentCategoryName='" + category + "'" +
+						" and (compatibleWithID =" + processorType + " OR compatibleWithID = 3)";
+						
 				stmnt = CONN.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				res = stmnt.executeQuery(query);
 			}
-			
 			catch (SQLException ex) {
-				
 				handleSqlExceptions(ex);			
 			}
-			
 			return res;
 		}
-			
 		
+		// This will return all processors that are of a certain type
+		public ResultSet getAllProcessorsOfType(int processorType)
+		{
+			ResultSet res = null;
+			try{
+				String query = "SELECT * FROM processor_types WHERE processorBrandID = " + processorType;
+				stmnt = CONN.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+				res = stmnt.executeQuery(query);
+			}
+			catch (SQLException ex) {
+				handleSqlExceptions(ex);			
+			}
+			return res;
+		}	
 		
 }
 	

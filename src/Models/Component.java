@@ -16,11 +16,11 @@ public class Component implements java.io.Serializable{
 	/**
 	 * Members
 	 */
-	private String category;
-	private String name;
-	private String brand;
-	private double price;
-	private int id;
+	protected String category;
+	protected String name;
+	protected String brand;
+	protected double price;
+	protected int id;
 	
 	/**
 	 * Default Constructor

@@ -1,5 +1,6 @@
 package Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,9 +20,9 @@ public class Build implements java.io.Serializable{
 	 * Static Members
 	 */
 	// The types of processors that the system is compatible with
-	private static final String[] processorTypes = {"Intel", "AMD"};
+	public static final String[] processorTypes = {"None", "AMD", "Intel", "Both"};
 	// The states that the build can be in
-	public static final String[] buildStates = {"processor", "motherboard", "memory", "video", "power", "drive", "case"};
+	public static final String[] buildStates = {"Processor", "Motherboard", "Memory", "Video Card", "Power Supply", "Hard Drive", "Case"};
 	
 	/**
 	 * Members
@@ -33,12 +34,25 @@ public class Build implements java.io.Serializable{
 	// The type of processor this build is for (
 	private int processorType;
 	
+	/**
+	 * private helpers
+	 */
+	private void initializeComponents()
+	{
+		if(null == components)
+		{
+			components =  new ArrayList<Component>();
+		}
+	}
+	
+	
 	/** 
 	 * Default Constructor
 	 */
 	public Build()
 	{
 		state = 0;
+		components =  new ArrayList<Component>();
 	}
 	
 	/**
@@ -64,6 +78,7 @@ public class Build implements java.io.Serializable{
 	 * @param component
 	 */
 	public void addComponent(Component component) {
+		initializeComponents();
 		components.add(component);
 	}
 	
@@ -83,6 +98,7 @@ public class Build implements java.io.Serializable{
 	}
 	
 	public List<Component> getComponents() {
+		initializeComponents();
 		return components;
 	}
 	
