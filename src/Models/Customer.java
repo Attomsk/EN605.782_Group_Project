@@ -17,6 +17,7 @@ public class Customer implements java.io.Serializable{
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String password;
 	private String address1;
 	private String address2;
 	private String zipcode;
@@ -28,6 +29,7 @@ public class Customer implements java.io.Serializable{
 	 */
 	public Customer()
 	{
+		this.password = "";
 		this.firstName = "";
 		this.lastName = "";
 		this.email = "";
@@ -45,19 +47,21 @@ public class Customer implements java.io.Serializable{
 	 * @param firstName
 	 * @param lastName
 	 * @param email
+	 * @param password
 	 * @param address1
 	 * @param address2
 	 * @param zipcode
 	 * @param city
 	 * @param state
 	 */
-	public Customer(String firstName, String lastName, String email,
+	public Customer(String firstName, String lastName, String email, String password,
 			String address1, String address2, String zipcode, String city,
 			String state) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.password = password;
 		this.address1 = address1;
 		this.address2 = address2;
 		this.zipcode = zipcode;
@@ -87,6 +91,12 @@ public class Customer implements java.io.Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPassword() {
+		return password;
 	}
 	public String getAddress1() {
 		return address1;
