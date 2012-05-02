@@ -52,8 +52,10 @@ function validateRegistrationForm(){
 	document.forms['regForm'].submit();
 }
 </script>
+<% String regMessage = (String) request.getAttribute("regMessage"); %>
 			<div id="mainWrap">
 			<div class="borderDiv">
+				<center><%if(null != regMessage){%><h2><%=regMessage%></h2><%}%></center>
 				<table style="margin-left:auto;margin-right:auto;width:100%">
 				<tr>
 					<th><h1>Log In</h1></th>

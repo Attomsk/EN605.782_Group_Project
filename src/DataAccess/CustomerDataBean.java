@@ -8,7 +8,7 @@ import java.util.List;
 import Models.Customer;
 /**
  * Gets Customer Data from the database
- * @author Dave Knopp
+ * @author Dave Knopp & Ben Morlok
  *
  */
 public class CustomerDataBean {
@@ -50,5 +50,26 @@ public class CustomerDataBean {
 			DataAccessLayer.handleSqlExceptions(ex);
 		}
 		return outputData;
+	}
+	
+	/**
+	 * adds a new customer to the database, returns the id if it was successful
+	 * @param email
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 * @param address1
+	 * @param address2
+	 * @param city
+	 * @param state
+	 * @param zip
+	 * @return
+	 */
+	public int addNewUser(String email, String password, String firstName, String lastName, String address1, String address2, String city, String state, String zip)
+	{
+		int result = -1;
+		result = DAO.insertNewUser(email, password, firstName, lastName, address1, address2, city, state, zip);
+		DAO.closeStatement();
+		return result;
 	}
 }

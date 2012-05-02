@@ -1,8 +1,6 @@
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,10 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import DataAccess.ComponentDataBean;
 import DataAccess.CustomerDataBean;
-import Models.Build;
-import Models.Component;
 import Models.Customer;
 
 /**
@@ -62,7 +57,6 @@ public class LoginServlet extends HttpServlet {
 		
 		String url = "/index.jsp";
 		HttpSession session = request.getSession(false);
-		
 		CustomerDataBean customerData = new CustomerDataBean();
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -85,7 +79,27 @@ public class LoginServlet extends HttpServlet {
 		// Registration Attempt
 		else
 		{
-			// add calls to add user to database
+			// get remaining registration parameters
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			String address1 = request.getParameter("address1");
+			String address2 = request.getParameter("address2");
+			String city = request.getParameter("city");
+			String state = request.getParameter("state");
+			String zip = request.getParameter("zip");
+			
+			//Add user to database
+			if(customerData.addNewUser(email, password, firstName, lastName, address1, address2, city, state, zip) >= 0)
+			{
+				//registration successful
+				request.setAttribute("regMessage", "Registration was succesful");
+			}
+			else
+			{
+				//registration failed
+				request.setAttribute("regMessage", "Registration failed");
+			}
+			url = "/login.jsp";
 		}
 		// Return control to view
 		RequestDispatcher dispatcher =
