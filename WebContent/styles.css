@@ -191,6 +191,9 @@ h3{
 	}
 	
 .formTable {
+	margin-left:auto;
+	margin-right:auto;
+	width:100%
 	border-width:2px;
 	border-spacing:0px;
 	border-style:none;

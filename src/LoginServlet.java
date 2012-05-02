@@ -66,15 +66,26 @@ public class LoginServlet extends HttpServlet {
 		CustomerDataBean customerData = new CustomerDataBean();
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		// Check to see if this is a registration request
+		String register = request.getParameter("register");
 		
-		List<Customer> validCustomers = (List<Customer>) customerData.validate(email, password);
-		if (validCustomers.isEmpty()) {
-			// redirect back to login
-			url = "/login.jsp";
-		} else {
-			// Store customer in session. Lazy...just grabbing first customer in list. Assuming it will always be just
-			// one customer email/password match.
-			session.setAttribute("customer", validCustomers.get(0));
+		// Login Attempt
+		if(null == register)
+		{
+			List<Customer> validCustomers = (List<Customer>) customerData.validate(email, password);
+			if (validCustomers.isEmpty()) {
+				// redirect back to login
+				url = "/login.jsp";
+			} else {
+				// Store customer in session. Lazy...just grabbing first customer in list. Assuming it will always be just
+				// one customer email/password match.
+				session.setAttribute("customer", validCustomers.get(0));
+			}
+		}
+		// Registration Attempt
+		else
+		{
+			// add calls to add user to database
 		}
 		// Return control to view
 		RequestDispatcher dispatcher =
