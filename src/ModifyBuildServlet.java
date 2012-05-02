@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,7 +16,9 @@ import Models.Build;
 import Models.Component;
 
 /**
- * Servlet implementation class ModifyBuildServlet
+ * Allows the user to modify a component selection in the current build
+ * @author Ben Morlok
+ *
  */
 @WebServlet("/ModifyBuildServlet")
 public class ModifyBuildServlet extends HttpServlet {

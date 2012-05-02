@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="Models.Component" %>
-
 <%@ page import="Models.Build" %>
 Build A PC - Cart
 <%@ include file="master/navbar.jsp" %>

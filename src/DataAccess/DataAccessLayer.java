@@ -138,7 +138,7 @@ import java.sql.ResultSet;
 			ResultSet res = null;
 			
 			try {
-				String query = "select * from login where username='"+email+"' and password='"+password+"'";
+				String query = "SELECT * FROM customer where email='"+email+"' and password='"+password+"'";
 				stmnt = CONN.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 				res = stmnt.executeQuery(query);
 			} catch (SQLException ex) {

@@ -3,11 +3,11 @@ Build A PC - Log In
 <%@ include file="master/navbar.jsp" %> 
 			<div id="mainWrap">
 			<div class="borderDiv">
-				<form action="login">
+				<form action="Login" method="POST">
 				<table class="formTable">
 					<tr>
-						<td>User Name</td>
-						<td><input type="text" name="username"/></td>
+						<td>Email Address</td>
+						<td><input type="text" name="email"/></td>
 					</tr>
 					<tr>
 						<td>Password</td>

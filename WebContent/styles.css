@@ -46,6 +46,16 @@ body{
 	text-decoration:none;
 	color:#e5e5e5;
 	}
+	
+.customerWelcome {
+	padding-right:5px;
+	float:left;
+	font-family: Visitor1, Verdana, Arial;
+	font-size:14pt;
+	color:#e5e5e5;
+	margin-top:100px;
+	margin-left:20px;
+	}
 
 .headerText:hover a{
 	color:#f7921c;

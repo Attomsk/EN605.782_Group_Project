@@ -34,12 +34,15 @@ public class CustomerDataBean {
 		try
 		{
 			ResultSet res = DAO.validate(email, password);
-			while (res.next()) {
-				outputData.add(new Customer(res.getString("firstName"), res.getString("lastName"),  res.getString("email"), res.getString("password"),
-						res.getString("address1"), res.getString("address2") , res.getString("city"), res.getString("zip"), res.getString("state")));
+			if(null != res)
+			{
+				while (res.next()) {
+					outputData.add(new Customer(res.getString("firstName"), res.getString("lastName"),  res.getString("email"), res.getString("password"),
+							res.getString("address1"), res.getString("address2") , res.getString("city"), res.getString("zip"), res.getString("state")));
+				}
+				//clean up database resources
+				res.close();
 			}
-			//clean up database resources
-			res.close();
 			DAO.closeStatement();
 		}
 		catch(SQLException ex)

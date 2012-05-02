@@ -33,19 +33,34 @@ public class LoginServlet extends HttpServlet {
     }
 
 	/**
+	 * Handles logouts
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		String url = "/index.jsp";
+		HttpSession session = request.getSession(false);
+		String logout = request.getParameter("logout");
+		if(null != session)
+		{
+			// Check to see if this is a logout attempt
+			if(null != logout)
+			{
+				session.removeAttribute("customer");
+			}
+		}
+		// Return control to view
+		RequestDispatcher dispatcher =
+			     getServletContext().getRequestDispatcher(url);
+			dispatcher.forward(request, response);
 	}
 
 	/**
+	 * Handles Logins
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url;
+		String url = "/index.jsp";
 		HttpSession session = request.getSession(false);
 		
 		CustomerDataBean customerData = new CustomerDataBean();
@@ -53,18 +68,15 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		List<Customer> validCustomers = (List<Customer>) customerData.validate(email, password);
-		
 		if (validCustomers.isEmpty()) {
 			// redirect back to login
 			url = "/login.jsp";
 		} else {
-			url = "/main.jsp";
-			
 			// Store customer in session. Lazy...just grabbing first customer in list. Assuming it will always be just
 			// one customer email/password match.
 			session.setAttribute("customer", validCustomers.get(0));
 		}
-		
+		// Return control to view
 		RequestDispatcher dispatcher =
 			     getServletContext().getRequestDispatcher(url);
 			dispatcher.forward(request, response);	
