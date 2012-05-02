@@ -33,7 +33,7 @@ public class ComponentDataBean {
 	{
 		// If this is the first build state, we should be querying for processors,
 		// which require a special query
-		if(componentType == Build.buildStates[0])
+		if(componentType.equals(Build.buildStates[0]))
 		{
 			return getAllProcessorsOfType(processorType);
 		}

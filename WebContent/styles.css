@@ -200,11 +200,10 @@ h3{
 .buildTable {
 	margin-left:auto;
 	margin-right:auto;
-	width:70%
+	width:100%
 	}
 
 .buildTable tr {
-	
 	color:#3f3f3f;
 	font-family: Visitor1, Verdana, Arial;
 	font-size:14pt;

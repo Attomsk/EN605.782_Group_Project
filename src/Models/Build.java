@@ -114,7 +114,11 @@ public class Build implements java.io.Serializable{
 	}
 	
 	public void setComponents(List<Component> components) {
-		this.components = components;
+		this.components.clear();
+		for(int i=0; i< components.size(); i++)
+		{
+			this.components.add(components.get(i));
+		}
 	}
 	
 	public int getProcessorType() {

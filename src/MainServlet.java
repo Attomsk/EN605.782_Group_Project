@@ -28,6 +28,8 @@ public class MainServlet extends HttpServlet {
     }
 
 	/**
+	 * This will filter GET request to the doPost, it handles special cases such as
+	 * starting a new build or going back in a build
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,8 +70,17 @@ public class MainServlet extends HttpServlet {
 					build.setState(build.getState()-1);
 				}
 			}
-			doPost(request, response);
-			return;
+			// Check to see if this build is full(complete)
+			if(build.getComponents().size() == Build.buildStates.length)
+			{
+				url="/cart.jsp";
+			}
+			else
+			{
+				// Process the next build state
+				doPost(request, response);
+				return;
+			}
 		}
 		// load view
 		RequestDispatcher dispatcher =
@@ -78,11 +89,12 @@ public class MainServlet extends HttpServlet {
 	}
 
 	/**
+	 * Progressing a build from the current state to the next state
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Default redirect from this action
-		String url = "/index.jsp";
+		String url = "/build.jsp";
 		// This is the worker bean that gets bean info from the DB
 		ComponentDataBean componentData = new ComponentDataBean();
 		// Get session if one exists, do not create new session
@@ -116,14 +128,16 @@ public class MainServlet extends HttpServlet {
 					{
 						build.incrementState();
 					}
+					else
+					{
+						// build is done, send user to the shopping cart
+						url = "/cart.jsp";
+					}
 				}
-			
 				// store build and new parts in session
 				List<Component> nextComponents = (List<Component>) componentData.getAllComponentsOfType(Build.buildStates[build.getState()], build.getProcessorType());
 				session.setAttribute("build", build);
 				session.setAttribute("newComponents", nextComponents);
-				// forward request and response objects to JSP page
-				url = "/build.jsp";
 			}
 		}
 		// load view
