@@ -1,11 +1,14 @@
-<%@ include file="master/header.jsp" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="Models.Component" %>
 <%@ page import="Models.Build" %>
+<%@ page import="Models.Customer" %>
+<%@ include file="master/header.jsp" %>
 Build A PC - Cart
 <%@ include file="master/navbar.jsp" %>
-<% Build build = (Build) request.getSession().getAttribute("build");%>
+<% Build build = (Build) request.getSession().getAttribute("build");
+if(null == build){ build = new Build();}
+%>
 	<div id="buildWrapper" style="width:100%; height:100%; vertical-align: middle;">
 		<div class="clearDiv">
 			<div style="float:left">
@@ -41,6 +44,20 @@ Build A PC - Cart
 				<%} %>
 				</table>
 			</form>
+		</div>
+		<div class="clearDiv">
+			<div style="float:right">
+				<h3><a href="checkout.jsp">
+				<%if(null == customer)
+				{%>
+					Checkout as guest
+				<%}
+				else
+				{%>
+					Checkout as <%=customer.getFirstName()%>
+				<%}%>
+				</a></h3>
+			</div>
 		</div>
 	</div>
 <%@ include file="master/footer.jsp" %>

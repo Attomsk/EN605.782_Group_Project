@@ -79,10 +79,10 @@ function validateRegistrationForm(){
 					</table>
 				</form>
 				</td>
-				<td>
+				<td style="border-left:3px solid #e5e5e5">
 				<form name="regForm" action="Login" method="POST">
 					<input type="hidden" name="register" value="true"/>
-					<table class="formTable" style="border-left:3px solid #3f3f3f">
+					<table class="formTable">
 						<tr>
 							<td>Email</td>
 							<td><input type="text" name="email"/></td>

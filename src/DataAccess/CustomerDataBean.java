@@ -37,8 +37,14 @@ public class CustomerDataBean {
 			if(null != res)
 			{
 				while (res.next()) {
+					Integer zip = res.getInt("zip");
+					String zipcode = "";
+					if(zip >= 0)
+					{
+						zipcode = zip.toString();
+					}
 					outputData.add(new Customer(res.getString("firstName"), res.getString("lastName"),  res.getString("email"), res.getString("password"),
-							res.getString("address1"), res.getString("address2") , res.getString("city"), res.getString("zip"), res.getString("state")));
+							res.getString("address1"), res.getString("address2") , zipcode,  res.getString("city"), res.getString("state")));
 				}
 				//clean up database resources
 				res.close();
