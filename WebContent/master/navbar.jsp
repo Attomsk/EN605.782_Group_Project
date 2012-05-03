@@ -25,9 +25,9 @@
 		</div>
 		<div id="navBar">
 			<div class="navItem" style="float:left"><a href="Build">Build</a></div>
-			<div class="navItem" style="float:left"><a href="#">Products</a></div>
+			<div class="navItem" style="float:left"><a href="products.jsp">Products</a></div>
 			<div class="navItem" style="float:left"><a href="about.jsp">About</a></div>
-			<div class="navItem" style="float:left"><a href="#">Contact</a></div>
+			<div class="navItem" style="float:left"><a href="contactUs.jsp">Contact</a></div>
 			<div class="navItem" style="float:right"><a href="cart.jsp">Shopping Cart</a></div>
 		</div>
 		<div id="mainContent">
