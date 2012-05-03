@@ -1,12 +1,12 @@
 <%@ include file="master/header.jsp" %>
 Build A PC - Products
 <%@ include file="master/navbar.jsp" %> 
-			
-			<div id="mainWrap" style="width:100%; height:100%; vertical-align: middle;">
+			<div id="productWrap" style="width:100%; height:100%; vertical-align: middle;">
+			<div class="clearDiv"> </div>
 			<div class="borderDiv">
 				<div class="buildColumn">
 					<h1>Motherboards</h1>
-					<img class="buildimg" src="images/MotherboardProducts.png"/></a><br/>
+					<img src="images/MotherboardProducts.png"/></a><br/>
 					We offer Motherboards from high quality manufacturers such as:
 					<ul>
 						<li>Asus</li>
@@ -15,12 +15,12 @@ Build A PC - Products
 						<li>Hewlett Packard</li>
 						<li>Toshiba</li>
 					</ul>
-					<h3><a href="index.jsp">Start your Build</a></h3>
+					<h3><a href="index.jsp" style="text-decoration:none">Start your Build</a></h3>
 					
 				</div>
 				<div class="buildColumn">
 					<h1>Memory</h1>
-					<img class="buildimg" src="images/MemoryProducts.png"/></a><br/>
+					<img style="width:150px;height:150px" src="images/MemoryProducts.png"/></a><br/>
 					We carry the following brands of memory:
 					<ul>
 						<li>Corsair</li>
@@ -34,7 +34,7 @@ Build A PC - Products
 				</div>
 				<div class="buildColumn">
 					<h1>Storage Drives</h1>
-					<img class="buildimg" src="images/StorageDrivesProducts.png"/></a><br/>
+					<img style="width:150px;height:150px" src="images/StorageDrivesProducts.png"/></a><br/>
 					We offer the highest quality brands for storage both Solid State Drives and Hard Disk Drives:
 					<ul>
 						<li>Corsair</li>
@@ -46,7 +46,7 @@ Build A PC - Products
 				</div>
 				<div class="buildColumn">
 					<h1>Video Cards</h1>
-					<img class="buildimg" src="images/VideoCardProducts.png"/></a><br/>
+					<img style="width:150px;height:150px" src="images/VideoCardProducts.png"/></a><br/>
 					We have video cards that will suit all your computing and entertainment needs. We have brands such as:
 					<ul>
 						<li>AMD - ATI</li>
