@@ -15,12 +15,12 @@ Build A PC - Home
 				</div>
 				<div class="buildColumn">
 					<h1>Ready to Build</h1>
-					<img class="buildimg" src="images/buildPackage.jpg"/><br/>
+					<a href="readytobuild.jsp"><img class="buildimg" src="images/buildPackage.jpg"/></a><br/>
 					Our pre-made packages come with everything you need to build your own PC.
 				</div>
 				<div class="buildColumn">
 					<h1>Combo Deals</h1>
-					<img class="buildimg" src="images/BuildCombo.jpg"/><br/>
+					<a href="combo.jsp"><img class="buildimg" src="images/BuildCombo.jpg"/></a><br/>
 					Start with a combo deal for extra savings.
 				</div>
 				<div style="clear:both"></div>
