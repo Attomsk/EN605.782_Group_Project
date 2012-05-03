@@ -22,7 +22,7 @@ public class DataAccessLayer {
 		private static String HOST = "localhost";
 		private static int PORT = 3306;
 		private static String USERNAME = "root";
-		private static String PASSWORD = "root";
+		private static String PASSWORD = "";
 		private static String DB_NAME = "db_build_a_pc";
 		private static String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DB_NAME;
 		private static Connection CONN = null;
