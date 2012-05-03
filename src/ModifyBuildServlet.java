@@ -17,18 +17,17 @@ import Models.Component;
 /**
  * Allows the user to modify a component selection in the current build
  * @author Ben Morlok
- *
  */
 @WebServlet("/ModifyBuildServlet")
 public class ModifyBuildServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
+     * Standard constructor
      * @see HttpServlet#HttpServlet()
      */
     public ModifyBuildServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -108,7 +107,7 @@ public class ModifyBuildServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// No post handling in this servlet
 	}
 
 }

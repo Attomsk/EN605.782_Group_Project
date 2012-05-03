@@ -27,12 +27,13 @@ public class CustomerDataBean {
 	 * Returns a list of all the customers with that email/password combo
 	 * @param email
 	 * @param password
-	 * @return
+	 * @return List<Customer>
 	 */
 	public List<Customer> validate(String email, String password) {
 		List <Customer> outputData = new ArrayList<Customer>();
 		try
 		{
+			// Query DB, add results to output list
 			ResultSet res = DAO.validate(email, password);
 			if(null != res)
 			{
@@ -59,7 +60,7 @@ public class CustomerDataBean {
 	}
 	
 	/**
-	 * adds a new customer to the database, returns the id if it was successful
+	 * adds a new customer to the database, returns the id if it was successful, -1 if unsuccessful
 	 * @param email
 	 * @param password
 	 * @param firstName
@@ -69,11 +70,12 @@ public class CustomerDataBean {
 	 * @param city
 	 * @param state
 	 * @param zip
-	 * @return
+	 * @return int
 	 */
 	public int addNewUser(String email, String password, String firstName, String lastName, String address1, String address2, String city, String state, String zip)
 	{
 		int result = -1;
+		// Query the DB
 		result = DAO.insertNewUser(email, password, firstName, lastName, address1, address2, city, state, zip);
 		DAO.closeStatement();
 		return result;

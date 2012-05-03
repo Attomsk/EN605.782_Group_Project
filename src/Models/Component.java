@@ -6,8 +6,6 @@ package Models;
  *
  */
 public class Component implements java.io.Serializable{
-
-	
 	/**
 	 * Serial UID
 	 */

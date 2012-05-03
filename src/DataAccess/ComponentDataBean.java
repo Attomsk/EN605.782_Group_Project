@@ -10,11 +10,11 @@ import Models.Component;
 /**
  * Gets Component Data from the database
  * @author Ben Morlok
- *
  */
 public class ComponentDataBean {
-
+	
 	private DataAccessLayer DAO;
+	
 	/**
 	 * Default Constructor
 	 */
@@ -27,7 +27,7 @@ public class ComponentDataBean {
 	/**
 	 * Returns a list of all the components of a specific type compatible with a specific processor
 	 * @param type
-	 * @return
+	 * @return List<Component>
 	 */
 	public List<Component> getAllComponentsOfType(String componentType, int processorType)
 	{
@@ -42,6 +42,7 @@ public class ComponentDataBean {
 		List<Component> outputData = new ArrayList<Component>();
 		try
 		{
+			// Query DB, gather results into output list
 			ResultSet res = DAO.getAllComponentOfType(componentType, processorType);
 			while (res.next()) {
 				outputData.add(new Component(res.getString("Device"), res.getString("Component"), res.getString("Brand"), res.getDouble("Price"), res.getInt("Id")));
@@ -58,15 +59,16 @@ public class ComponentDataBean {
 	}
 	
 	/**
-	 * Returns a list of all the components of a specific type compatible with a specific processor
+	 * Returns a list of all the processors of a specific type
 	 * @param type
-	 * @return
+	 * @return List<Component>
 	 */
 	public List<Component> getAllProcessorsOfType(int processorType)
 	{
 		List<Component> outputData = new ArrayList<Component>();
 		try
 		{
+			// Query DB, gather results into output list
 			ResultSet res = DAO.getAllProcessorsOfType(processorType);
 			while (res.next()) {
 				Component newCmp = new Component();

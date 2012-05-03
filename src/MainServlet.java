@@ -14,17 +14,18 @@ import Models.Component;
 
 /**
  * Servlet that controls the main computer building functionality
+ * @author Ben Morlok
  */
 @WebServlet("/MainServlet")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
+     * Standard constructor
      * @see HttpServlet#HttpServlet()
      */
     public MainServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -59,9 +60,10 @@ public class MainServlet extends HttpServlet {
 			comboBuild.setState(0);
 			comboBuild.setProcessorType(processorType);
 			int i = 0;
-			// find all the build items in the request header
+			// find all the build items in the request header & add them to the comboBuild
 			while(i < Build.buildStates.length)
 			{
+				// Get request parameter for this component
 				String reqComp = request.getParameter(Build.buildStates[i]);
 				if(null != reqComp)
 				{
@@ -76,6 +78,7 @@ public class MainServlet extends HttpServlet {
 							break;
 						}
 					}
+					// Don't increment if this is the last state
 					if (comboBuild.getState()+1 < Build.buildStates.length)
 					{
 						// Increment build state
@@ -92,7 +95,7 @@ public class MainServlet extends HttpServlet {
 			session.setAttribute("build", comboBuild);
 		}
 		
-		// Valid processor type - start new build
+		// Valid processor type & not a combo build -> start new build
 		if((null == combo) && (processorType > 0) && (processorType < Build.processorTypes.length))
 		{
 			Build newBuild = new Build();
@@ -103,6 +106,7 @@ public class MainServlet extends HttpServlet {
 		
 		// Retrieve build bean
 		Build build = (Build) session.getAttribute("build");
+		// Check for build finality and going back in the build
 		if(null != build)
 		{
 			// This is a request to go back in the build
@@ -135,7 +139,7 @@ public class MainServlet extends HttpServlet {
 	}
 
 	/**
-	 * Progressing a build from the current state to the next state
+	 * This progresses a build from the current state to the next state
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
