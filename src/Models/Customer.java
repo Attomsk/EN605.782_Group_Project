@@ -2,10 +2,9 @@ package Models;
 
 /**
  * Represents a single customer in the PC Wizard
- * @author Ben Morlok
+ * @author Ben Morlok & David Knopp
  */
 public class Customer implements java.io.Serializable{
-
 	/**
 	 * Serial UID
 	 */

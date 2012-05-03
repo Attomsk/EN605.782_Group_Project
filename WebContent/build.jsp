@@ -25,7 +25,9 @@ function hideBuildList(){
 	<div id="buildWrapper" style="width:100%; height:100%; vertical-align: middle;">
 		<div class="clearDiv">
 			<div style="float:left">
-				<h1>Select <%=build.getStateString() %></h1>
+				<div style="float:left;padding-right:3px"><img src="images/<%=build.getStateString()%>.jpg"/></div>
+				<div style="float:left"><h1>Select <%=build.getStateString() %></h1></div>
+				<div style="clear:both">
 				<%for(int i=0; i < Build.buildStates.length; i++)
 				{%>
 					<%if(Build.buildStates[i].equals(build.getStateString()))
@@ -38,6 +40,7 @@ function hideBuildList(){
 					<%}%>
 					<%if((i+1) != Build.buildStates.length){%> > <%} %>
 				<%} %>
+				</div>
 			</div>
 			<div style="float:right; text-align:right">
 				<h3>Current Build Total: $<%=build.getTotalBuildCost() %></h3><br/>

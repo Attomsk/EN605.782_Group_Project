@@ -6,7 +6,6 @@ package Models;
  *
  */
 public class CreditCard implements java.io.Serializable {
-
 	/**
 	 * Serial UID
 	 */

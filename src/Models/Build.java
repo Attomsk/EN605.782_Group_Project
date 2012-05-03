@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author Ben Morlok
  */
 public class Build implements java.io.Serializable{
-
-	
-	
 	/**
 	 * Serial UID
 	 */
@@ -42,6 +39,7 @@ public class Build implements java.io.Serializable{
 	/**
 	 * private helpers
 	 */
+	// Creates the component list if it does not exist
 	private void initializeComponents()
 	{
 		if(null == components)
@@ -72,26 +70,18 @@ public class Build implements java.io.Serializable{
 	
 	
 	/*** Utility/Interaction Functions ***/
-	/**
-	 * Increment the state
-	 */
+	// Increments the state
 	public void incrementState() {
 		state++;
 	}
 
-	/**
-	 * Add component to list of components.
-	 * 
-	 * @param component
-	 */
+	// Add component to list of components.
 	public void addComponent(Component component) {
 		initializeComponents();
 		components.add(component);
 	}
-	
-	/**
-	 * Removes the last component from the component list
-	 */
+
+	// Removes the last component from the component list
 	public void removeLastComponent() {
 		if(components.size() > 0)
 		{
@@ -99,10 +89,7 @@ public class Build implements java.io.Serializable{
 		}
 	}
 	
-	/**
-	 * Computes the total build cost
-	 * @return
-	 */
+	// Computes the total build cost
 	public double getTotalBuildCost(){
 		double total = 0;
 		Iterator<Component> itr = components.iterator();
@@ -117,12 +104,15 @@ public class Build implements java.io.Serializable{
 	public String getBuildUrl(HttpServletRequest request){
 		URL myUrl;
 		String output = "#";
+		// Start the url of with the host/port/query stub
 		String buildUrl=" http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +
 				"/Build?buildCombo=true&ProcessorType="+this.processorType;
+		// Add all build components as query parameters
 		for(int i=0; i<this.components.size(); i++)
 		{
 			buildUrl += "&" + buildStates[i]+"="+this.components.get(i).getId();
 		}
+		// Ensure that this is a valid URL
 		try {
 			myUrl = new URL(buildUrl);
 			output = myUrl.toString();

@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -14,21 +12,22 @@ import Models.Customer;
 
 /**
  * Servlet implementation class CustomerServlet
+ * @author Ben Morlok & David Knopp
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
+     * Standard constructor
      * @see HttpServlet#HttpServlet()
      */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * Handles logouts
+	 * Handles Logouts
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,14 +49,14 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	/**
-	 * Handles Logins
+	 * Handles Logins & Registration
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String url = "/index.jsp";
 		HttpSession session = request.getSession(false);
 		CustomerDataBean customerData = new CustomerDataBean();
+		// Get email & password
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		// Check to see if this is a registration request

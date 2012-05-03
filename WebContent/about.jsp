@@ -1,7 +1,9 @@
 <%@ include file="master/header.jsp" %>
-Build A PC - Home
-<%@ include file="master/navbar.jsp" %> 
-			<div id="mainWrap" style="width:100%; height:100%; vertical-align: middle;">
+Build A PC - About
+<%@ include file="master/navbar.jsp" %>
+			<div class="clearDiv">
+			</div>
+			<div id="aboutWrap" style="width:100%; height:100%; vertical-align: middle;">
 			<div class="borderDiv">
 				<div id=mainContent>
 				<h2>About Our Company </h2>	
@@ -14,16 +16,16 @@ Build A PC - Home
 					 very simple task. 
 					</p>
 					<p>Build-A-PC is the ultimate destination for building your perfect computer.
-					 If you don’t feel like building your own computer you can choose from our 
+					 If you don't feel like building your own computer you can choose from our 
 					 recommendation for a platform based on your needs or buy a computer that has 
 					 been fully built. We are here to serve you and we will not stop until you are 
 					 satisfied and you computer meets your expectations and your budget. We are available 
 					 24 hours a day 7 days a week for support and will answer any questions that you may have. 
 					</p><br>
 				<h2>Why Shop at Build-A-PC</h2>
-					<p>We’re are enthusiastic about computers and we want you to be too. We carry the latest 
+					<p>We're are enthusiastic about computers and we want you to be too. We carry the latest 
 					components - from motherboards, processors, hard drives, optical drives, cases and more 
-					– of  top brand name manufacturers all at reasonable prices. This ensures that you can 
+					- of top brand name manufacturers all at reasonable prices. This ensures that you can 
 					build your perfect computer that fits your lifestyle and your budget. Build-A-PC will 
 					offer to you the most complete online shopping experience for your computer. 
 					</p>

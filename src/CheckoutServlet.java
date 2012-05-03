@@ -11,17 +11,18 @@ import Models.CreditCard;
 
 /**
  * Handles processing of the checkout form
+ * @author Ben Morlok
  */
 @WebServlet("/CheckoutServlet")
 public class CheckoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
+     * Standard constructor
      * @see HttpServlet#HttpServlet()
      */
     public CheckoutServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -32,7 +33,7 @@ public class CheckoutServlet extends HttpServlet {
 	}
 
 	/**
-	 * Processes the input from the checkout form
+	 * Processes the input from the checkout form - redirects to confirmation page
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,7 +56,6 @@ public class CheckoutServlet extends HttpServlet {
 		{
 			address2 = "";
 		}
-
 		// create customer bean
 		Customer customer = new Customer (firstName, lastName, email, "", address1, address2, zipcode, city, state);
 		// create credit card bean
