@@ -70,6 +70,7 @@ public class LoginServlet extends HttpServlet {
 			if (validCustomers.isEmpty()) {
 				// redirect back to login
 				url = "/login.jsp";
+				request.setAttribute("regMessage", "Invalid Login");
 			} else {
 				// Store customer in session. Lazy...just grabbing first customer in list. Assuming it will always be just
 				// one customer email/password match.

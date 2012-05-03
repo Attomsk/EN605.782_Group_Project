@@ -93,6 +93,8 @@ function hideBuildList(){
 					</tr>
 					<%}%>
 					</table>
+					Build URL:
+					<input type="text" name="buildurl" value="<%= build.getBuildUrl(request) %>"/>
 				</div>
 			</div>
 		</div>

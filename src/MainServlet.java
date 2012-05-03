@@ -29,7 +29,7 @@ public class MainServlet extends HttpServlet {
 
 	/**
 	 * This will filter GET request to the doPost, it handles special cases such as
-	 * starting a new build or going back in a build
+	 * starting a new build or going back in a build or compiling a combo package
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,23 +38,69 @@ public class MainServlet extends HttpServlet {
 		String processorTypeString = request.getParameter("ProcessorType");
 		// Check to see if this is a request to go back
 		String back = request.getParameter("back");
-		
+		// Check to see if this is a build combo
+		String combo = request.getParameter("buildCombo");
+		// Get session if one exists, create new session if needed
+		HttpSession session = request.getSession(true);
+		// get the processor type (this indicates a new build)
 		int processorType = -1;
 		if(null != processorTypeString)
 		{
 			processorType = Integer.parseInt(processorTypeString);
 		}
 		
-		// Get session if one exists, create new session if needed
-		HttpSession session = request.getSession(true);
-		// Valid processor type - start build
-		if((processorType > 0) && (processorType < Build.buildStates.length))
+		// Build combo processing
+		if(null != combo)
+		{
+			// This is the worker bean that gets bean info from the DB
+			ComponentDataBean componentData = new ComponentDataBean();
+			// This is a build combo request -> create a new build from scratch
+			Build comboBuild = new Build();
+			comboBuild.setState(0);
+			comboBuild.setProcessorType(processorType);
+			int i = 0;
+			// find all the build items in the request header
+			while(i < Build.buildStates.length)
+			{
+				String reqComp = request.getParameter(Build.buildStates[i]);
+				if(null != reqComp)
+				{
+					// Add selection to the build bean
+					List<Component> components = (List<Component>) componentData.getAllComponentsOfType(Build.buildStates[comboBuild.getState()], comboBuild.getProcessorType());
+					Iterator<Component> itr = components.iterator();
+					while (itr.hasNext()) {
+						Component cmp = itr.next();
+						if (Integer.parseInt(reqComp) == cmp.getId()) {
+							Component newCmp = new Component(cmp.getCategory(), cmp.getName(), cmp.getBrand(), cmp.getPrice(), cmp.getId());
+							comboBuild.addComponent(newCmp);
+							break;
+						}
+					}
+					if (comboBuild.getState()+1 < Build.buildStates.length)
+					{
+						// Increment build state
+						comboBuild.incrementState();
+					}
+					i++;
+				}
+				else
+				{
+					// No component request - combo is done
+					break;
+				}
+			}
+			session.setAttribute("build", comboBuild);
+		}
+		
+		// Valid processor type - start new build
+		if((null == combo) && (processorType > 0) && (processorType < Build.processorTypes.length))
 		{
 			Build newBuild = new Build();
 			newBuild.setState(0);
 			newBuild.setProcessorType(processorType);
 			session.setAttribute("build", newBuild);
 		}
+		
 		// Retrieve build bean
 		Build build = (Build) session.getAttribute("build");
 		if(null != build)

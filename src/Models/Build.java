@@ -3,6 +3,10 @@ package Models;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Represents a current build in the Build a PC wizard
@@ -66,6 +70,8 @@ public class Build implements java.io.Serializable{
 		this.processorType = processorType;
 	}
 	
+	
+	/*** Utility/Interaction Functions ***/
 	/**
 	 * Increment the state
 	 */
@@ -91,6 +97,39 @@ public class Build implements java.io.Serializable{
 		{
 			components.remove(components.size()-1);
 		}
+	}
+	
+	/**
+	 * Computes the total build cost
+	 * @return
+	 */
+	public double getTotalBuildCost(){
+		double total = 0;
+		Iterator<Component> itr = components.iterator();
+		while (itr.hasNext()) {
+			Component cmp = itr.next();
+			total += cmp.getPrice();
+		}
+		return total;
+	}
+	
+	// Returns the build in URL form
+	public String getBuildUrl(HttpServletRequest request){
+		URL myUrl;
+		String output = "#";
+		String buildUrl=" http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() +
+				"/Build?buildCombo=true&ProcessorType="+this.processorType;
+		for(int i=0; i<this.components.size(); i++)
+		{
+			buildUrl += "&" + buildStates[i]+"="+this.components.get(i).getId();
+		}
+		try {
+			myUrl = new URL(buildUrl);
+			output = myUrl.toString();
+		} catch (MalformedURLException e) {
+			output = "#";
+		}
+		return output;
 	}
 	
 	/**
@@ -131,16 +170,5 @@ public class Build implements java.io.Serializable{
 	
 	public void setProcessorType(int processorType) {
 		this.processorType = processorType;
-	}
-	
-	// Computes the total cost of the current build
-	public double getTotalBuildCost(){
-		double total = 0;
-		Iterator<Component> itr = components.iterator();
-		while (itr.hasNext()) {
-			Component cmp = itr.next();
-			total += cmp.getPrice();
-		}
-		return total;
 	}
 }

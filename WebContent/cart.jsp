@@ -46,6 +46,12 @@ if(null == build){ build = new Build();}
 			</form>
 		</div>
 		<div class="clearDiv">
+			<div style="float:left">
+				<h3>Build URL:</h3>
+			</div>
+			<div style="float:left;margin-top:-5px">
+				<input type="text" name="buildurl" value="<%= build.getBuildUrl(request) %>"/>
+			</div>
 			<div style="float:right">
 				<h3><a href="checkout.jsp">
 				<%if(null == customer)
