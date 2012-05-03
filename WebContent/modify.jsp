@@ -25,7 +25,8 @@ function hideBuildList(){
 	<div id="buildWrapper" style="width:100%; height:100%; vertical-align: middle;">
 		<div class="clearDiv">
 			<div style="float:left">
-				<h1>Modify Build Selection</h1>
+				<div style="float:left;padding-right:3px"><img src="images/<%=components.get(0).getCategory().trim()%>.jpg"/></div>
+				<div style="float:left"><h1>Modify <%=components.get(0).getCategory()%></h1></div>
 			</div>
 			<div style="float:right; text-align:right">
 				<h1>Total: $<%=build.getTotalBuildCost() %></h1>

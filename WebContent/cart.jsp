@@ -12,7 +12,8 @@ if(null == build){ build = new Build();}
 	<div id="buildWrapper" style="width:100%; height:100%; vertical-align: middle;">
 		<div class="clearDiv">
 			<div style="float:left">
-				<h1>Shopping Cart</h1>
+				<div style="float:left;padding-right:3px"><img src="images/Cart.jpg"/></div>
+				<div style="float:left"><h1>Shopping Cart</h1></div>
 			</div>
 			<div style="float:right; text-align:right">
 				<h1>Total: $<%=build.getTotalBuildCost() %></h1>
